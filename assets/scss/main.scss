@@ -1,0 +1,34 @@
+@import '~bulma/sass/utilities/initial-variables';
+@import '~bulma/sass/utilities/functions';
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+.main {
+  display: flex;
+  min-height: 70vh;
+  flex-direction: column;
+}
+
+// Our Theme Colors
+$primary-blue: #2196F3;
+$p-dark-blue: #1976D2;
+$p-light-blue: #BBDEFB;
+$accent-blue: #03A9F4;
+$text-icons: #FFFFFF;
+$primary-text: #212121;
+$secondary-text: #757575;
+$divider-color: #BDBDBD;
+
+
+
+// Bulma Overrides
+$family-sans-serif: "Source Sans Pro", sans-serif;
+$primary: $primary-blue;
+$link: $p-light-blue;
+$info: $p-dark-blue;
+$text:  $primary-text;
+
+
+$footer-background-color: $p-light-blue;
+
+
+@import '~bulma'
