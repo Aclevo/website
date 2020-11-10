@@ -9,12 +9,12 @@
       <div class="media">
         <div class="media-left">
           <figure class="image is-48x48">
-            <img src="{{ media-image }}" alt="Placeholder image" />
+            <img src="media-image" alt="Placeholder image" />
           </figure>
         </div>
         <div class="media-content">
-          <p class="title is-4">{{ title }}</p>
-          <p class="subtitle is-6">{{ subtitle }}</p>
+          <p class="title is-4">Title</p>
+          <p class="subtitle is-6">Subtitle</p>
         </div>
       </div>
 

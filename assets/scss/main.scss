@@ -2,6 +2,30 @@
 @import '~bulma/sass/utilities/functions';
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
+@font-face {
+  font-family: "Aclevo Sans";
+  src: url(../fonts/AclevoSans-Regular.ttf) format('truetype');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Aclevo Sans";
+  src: url(../fonts/AclevoSans-Thin.ttf) format('truetype');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: "Aclevo Sans";
+  src: url(../fonts/AclevoSans-Bold.ttf) format('truetype');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: "Aclevo Sans";
+  src: url(../fonts/AclevoSans-UltraBold.ttf) format('truetype');
+  font-weight: 800;
+}
+
 .main {
   display: flex;
   min-height: 70vh;
@@ -21,7 +45,7 @@ $divider-color: #BDBDBD;
 
 
 // Bulma Overrides
-$family-sans-serif: "Source Sans Pro", sans-serif;
+$family-sans-serif: "Aclevo Sans", sans-serif;
 $primary: $primary-blue;
 $link: $p-light-blue;
 $info: $p-dark-blue;

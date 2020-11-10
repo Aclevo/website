@@ -18,12 +18,12 @@
         <a href class="navbar-item">Services</a>
       </div>
       <div class="navbar-end">
-        <a class="navbar-item">Home</a>
-        <a href class="navbar-item">Blog</a>
-        <a href class="navbar-item">Downloads</a>
-        <a href class="navbar-item">About</a>
-        <a href class="navbar-item">Contact</a>
-        <a href class="navbar-item">More</a>
+        <nuxt-link to="/" class="navbar-item">Home</nuxt-link>
+        <nuxt-link to="/blog" class="navbar-item">Blog</nuxt-link>
+        <nuxt-link to class="navbar-item">Downloads</nuxt-link>
+        <nuxt-link to class="navbar-item">About</nuxt-link>
+        <nuxt-link to class="navbar-item">Contact</nuxt-link>
+        <nuxt-link to class="navbar-item">More</nuxt-link>
       </div>
       <!-- hidden on mobile -->
     </div>
