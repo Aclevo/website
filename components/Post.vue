@@ -4,7 +4,7 @@
       <nuxt-link :to="`/blog/`+ slug">
         <h2>{{ title }}</h2>
       </nuxt-link>
-      <p>{{ content }}</p>
+      <div class="content-inner" v-html="content"></div>
     </div>
   </div>
 </template>

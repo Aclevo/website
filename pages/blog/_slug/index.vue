@@ -5,17 +5,13 @@
         <div class="container">
           <h1 v-if="this.error">Post does not exist.</h1>
           <h1 v-if="post.title" class="title">{{ post.title }}</h1>
-          <h2 v-if="post.has_summary == true" class="subtitle">{{ post.summary }}</h2>
-          <h2 v-if="post.has_summary == false" class="subtitle">
-            <i>This post has no summary.</i>
-          </h2>
-          <h3>Published {{ post.updated_at }}</h3>
+          <h3>Published {{ post.date_published }}</h3>
         </div>
       </div>
     </section>
     <section>
       <div class="container">
-        <div v-html="post.content_html" class="post"></div>
+        <div v-html="post.content" class="post"></div>
       </div>
     </section>
   </div>
@@ -34,10 +30,10 @@ export default {
   async created() {
     try {
       const res = await axios.get(
-        `https://backend.aclevo.xyz/blog/${this.$route.params.slug}`
+        `http://test.aclevo.xyz/api/collections/get/Posts?token=7f5e79f057de7c4a22d07eb6d7dddb&filter[slug]=${this.$route.params.slug}`
       );
-      console.log(res.data);
-      this.post = res.data;
+      console.log(res.data.entries);
+      this.post = res.data.entries[0];
     } catch (err) {
       this.error = "Blog Post Not Found.";
       console.log(err);

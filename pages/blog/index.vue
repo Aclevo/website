@@ -12,8 +12,8 @@
       <h1 v-if="this.error">{{ this.error }}</h1>
       <Post
         v-for="post in posts"
-        :key="post.id"
-        :id="post.id"
+        :key="post._id"
+        :id="post._id"
         :title="post.title"
         :content="post.content"
         :slug="post.slug"
@@ -37,8 +37,11 @@ export default {
   },
   async created() {
     try {
-      const res = await axios.get("https://backend.aclevo.xyz/blog");
-      this.posts = res.data;
+      const res = await axios.get(
+        "http://test.aclevo.xyz/api/collections/get/Posts?token=7f5e79f057de7c4a22d07eb6d7dddb"
+      );
+      this.posts = res.data.entries;
+      console.log(res.data.entries);
     } catch (err) {
       this.error = "Failed to retrieve blog posts. Please try again later.";
       console.log(err);
