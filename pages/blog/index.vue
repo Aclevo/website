@@ -38,7 +38,7 @@ export default {
   async created() {
     try {
       const res = await axios.get(
-        "https://test.aclevo.xyz/api/collections/get/Posts?token=7f5e79f057de7c4a22d07eb6d7dddb"
+        "https://api.aclevo.xyz/api/collections/get/Posts?token=7f5e79f057de7c4a22d07eb6d7dddb"
       );
       this.posts = res.data.entries;
       console.log(res.data.entries);

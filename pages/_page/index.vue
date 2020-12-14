@@ -29,7 +29,7 @@ export default {
   async created() {
     try {
       const res = await axios.get(
-        `https://backend.aclevo.xyz/${this.$route.params.slug}`
+        `https://api.aclevo.xyz/api/collections/get/Pages?token=7f5e79f057de7c4a22d07eb6d7dddb&filter[slug]=${this.$route.params.slug}`
       );
       console.log(res.data);
       this.post = res.data;
