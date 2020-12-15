@@ -20,10 +20,10 @@
       <div class="navbar-end">
         <nuxt-link to="/" class="navbar-item">Home</nuxt-link>
         <nuxt-link to="/blog" class="navbar-item">Blog</nuxt-link>
-        <nuxt-link to class="navbar-item">Downloads</nuxt-link>
-        <nuxt-link to class="navbar-item">About</nuxt-link>
-        <nuxt-link to class="navbar-item">Contact</nuxt-link>
-        <nuxt-link to class="navbar-item">More</nuxt-link>
+        <nuxt-link to="/downloads" class="navbar-item">Downloads</nuxt-link>
+        <nuxt-link to="/about" class="navbar-item">About</nuxt-link>
+        <nuxt-link to="/contact" class="navbar-item">Contact</nuxt-link>
+        <nuxt-link to="/more" class="navbar-item">More</nuxt-link>
       </div>
       <!-- hidden on mobile -->
     </div>

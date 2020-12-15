@@ -2,15 +2,17 @@
   <div>
     <section class="hero">
       <div class="hero-body">
-        <div class="container">
+        <div v-if="page" class="container">
+          <h1 v-if="page.title" class="title">{{ page.title }}</h1>
+        </div>
+        <div v-if="this.error" class="container">
           <h1 v-if="this.error">Page does not exist.</h1>
-          <h1 v-if="post.title" class="title">{{ page.title }}</h1>
         </div>
       </div>
     </section>
     <section>
-      <div class="container">
-        <div v-if="!this.error" class="page"></div>
+      <div v-if="page" class="container">
+        <div v-html="page.content" class="page"></div>
       </div>
     </section>
   </div>
@@ -22,17 +24,17 @@ export default {
   components: {},
   data() {
     return {
-      post: {},
+      page: {},
       error: null,
     };
   },
   async created() {
     try {
       const res = await axios.get(
-        `https://api.aclevo.xyz/api/collections/get/Pages?token=7f5e79f057de7c4a22d07eb6d7dddb&filter[slug]=${this.$route.params.slug}`
+        `https://api.aclevo.xyz/api/collections/get/Pages?token=7f5e79f057de7c4a22d07eb6d7dddb&filter[slug]=${this.$route.params.page}`
       );
-      console.log(res.data);
-      this.post = res.data;
+      this.page = res.data.entries[0];
+      this.page.exists = 1;
     } catch (err) {
       this.error = "Page Not Found.";
       console.log(err);
