@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="https://bulma.io">
+      <nuxt-link class="navbar-item" to="/">
         <h1 class="has-text-weight-bold">Aclevo</h1>
-      </a>
+      </nuxt-link>
       <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
@@ -12,10 +12,10 @@
     </div>
     <div class="navbar-menu">
       <div class="navbar-start">
-        <a href class="navbar-item">Projects</a>
-        <a href class="navbar-item">Series</a>
-        <a href class="navbar-item">Departments</a>
-        <a href class="navbar-item">Services</a>
+        <nuxt-link to="/" class="navbar-item">Projects</nuxt-link>
+        <nuxt-link to="/" class="navbar-item">Series</nuxt-link>
+        <nuxt-link to="/" class="navbar-item">Departments</nuxt-link>
+        <nuxt-link to="/" class="navbar-item">Services</nuxt-link>
       </div>
       <div class="navbar-end">
         <nuxt-link to="/" class="navbar-item">Home</nuxt-link>

@@ -13,16 +13,18 @@
         <header class="card-header">
           <p class="card-header-title">Our Latest Blog Post</p>
         </header>
-        <div class="card-content">
-          <p class="title">We Are Back in 2020!</p>
-          <p
-            class="subtitle"
-          >This year has been hectic for Aclevo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloribus, autem, amet illo placeat culpa provident commodi libero odit facere id at consequatur aliquid voluptate repellendus debitis quam reprehenderit ex! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloribus, autem, amet illo placeat culpa provident commodi libero odit facere id at consequatur aliquid voluptate repellendus debitis quam reprehenderit ex! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloribus, autem, amet illo placeat culpa provident commodi libero odit facere id at consequatur aliquid voluptate repellendus debitis quam reprehenderit ex! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi doloribus, autem, amet illo placeat culpa provident commodi libero odit facere id at consequatur aliquid voluptate repellendus debitis quam reprehenderit ex!</p>
+        <div v-if="error" class="card-content">
+          <div class="title">Error:</div>
+          <div class="subtitle">{{ error }}</div>
+        </div>
+        <div v-if="latest_post" class="card-content">
+          <p v-if="latest_post.title" class="title">{{ latest_post.title }}</p>
+          <p v-if="latest_post.content" v-html="latest_post.content" class="subtitle"></p>
         </div>
         <footer class="card-footer">
           <p class="card-footer-item">
-            <span>
-              <a href="https://twitter.com/codinghorror/status/506010907021828096">Read More</a>
+            <span v-if="latest_post">
+              <a :href="`/blog/` + latest_post.slug">Read More</a>
             </span>
           </p>
         </footer>
@@ -40,10 +42,29 @@
 </template>
 
 <script>
+import axios from "axios";
 import Card from "../components/Card";
 export default {
   components: {
     Card,
+  },
+  data() {
+    return {
+      latest_post: [],
+      error: null,
+    };
+  },
+  async created() {
+    try {
+      const res = await axios.get(
+        "https://api.aclevo.xyz/api/collections/get/Posts?token=7f5e79f057de7c4a22d07eb6d7dddb"
+      );
+      this.latest_post = res.data.entries[0];
+    } catch (err) {
+      this.error =
+        "Failed to retrieve latest blog post. Please try again later.";
+      console.log(err);
+    }
   },
 };
 </script>
