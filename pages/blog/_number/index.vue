@@ -59,6 +59,7 @@ export default {
       this.allposts = res.data.data;
       if (!this.allposts.length) {
         this.error = "There are no more blog posts.";
+        this.$nuxt.error({ statusCode: 404, message: "No posts found!" });
       }
       const nextPage = this.allposts.length === 11;
       this.posts = nextPage ? this.allposts.slice(0, -1) : this.allposts;
