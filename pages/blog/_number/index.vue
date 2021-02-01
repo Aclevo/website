@@ -23,7 +23,7 @@
     <div class="container">
       <section class="section" id="prev-next">
         <nuxt-link :to="prevLink">Prev page</nuxt-link>
-        <nuxt-link v-if="nextPage" :to="`/blog/${this.pageNo + 1}`">Next page</nuxt-link>
+        <nuxt-link v-if="this.nextPage" :to="`/blog/${this.pageNo + 1}`">Next page</nuxt-link>
       </section>
     </div>
   </div>
@@ -38,7 +38,7 @@ export default {
   },
   computed: {
     prevLink() {
-      return this.pageNo === 2 ? "/" : `/blog/${this.pageNo - 1}`;
+      return this.pageNo === 2 ? "/blog" : `/blog/${this.pageNo - 1}`;
     },
   },
   data() {
@@ -57,12 +57,14 @@ export default {
           10 * (this.pageNo - 1)
       );
       this.allposts = res.data.data;
+      console.log(this.allposts.length);
       if (!this.allposts.length) {
         this.error = "There are no more blog posts.";
         this.$nuxt.error({ statusCode: 404, message: "No posts found!" });
       }
-      const nextPage = this.allposts.length === 11;
-      this.posts = nextPage ? this.allposts.slice(0, -1) : this.allposts;
+      this.nextPage = this.allposts.length === 11;
+      console.log(this.nextPage);
+      this.posts = this.nextPage ? this.allposts.slice(0, -1) : this.allposts;
     } catch (err) {
       this.error = "Failed to retrieve blog posts. Please try again later.";
       console.log(err);

@@ -48,11 +48,14 @@ export default {
         "https://api.aclevo.xyz/items/blog?limit=11&offset=0"
       );
       this.allposts = res.data.data;
-      const nextPage = this.allposts.length === 11;
-      this.posts = nextPage ? this.allposts.slice(0, -1) : this.allposts;
-      console.log(res.data.data);
+      this.nextPage = this.allposts.length === 11;
+      this.posts = this.nextPage ? this.allposts.slice(0, -1) : this.allposts;
     } catch (err) {
       this.error = "Failed to retrieve blog posts. Please try again later.";
+      this.$nuxt.error = {
+        error: "Failed to retrieve blog posts.",
+        statuscode: 500,
+      };
       console.log(err);
     }
   },
