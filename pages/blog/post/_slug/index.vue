@@ -5,13 +5,17 @@
         <div class="container">
           <h1 v-if="this.error">Post does not exist.</h1>
           <h1 v-if="post.title" class="title">{{ post.title }}</h1>
-          <h3>Published {{ post.date_published }}</h3>
+          <h3>Published {{ post.date_created }}</h3>
+          <img
+            v-if="post.image"
+            :src="`https://api.aclevo.xyz/assets/` +  post.image + `?fit=cover&height=400&width=1200&quality=80`"
+          />
         </div>
       </div>
     </section>
     <section>
       <div class="container">
-        <div v-html="post.content" class="post"></div>
+        <div v-html="post.post" class="post"></div>
       </div>
     </section>
   </div>
@@ -30,10 +34,10 @@ export default {
   async created() {
     try {
       const res = await axios.get(
-        `https://api.aclevo.xyz/api/collections/get/Posts?token=7f5e79f057de7c4a22d07eb6d7dddb&filter[slug]=${this.$route.params.slug}`
+        `https://api.aclevo.xyz/items/blog?filter[slug][_eq]=${this.$route.params.slug}`
       );
-      console.log(res.data.entries);
-      this.post = res.data.entries[0];
+      console.log(res.data.data);
+      this.post = res.data.data[0];
     } catch (err) {
       this.error = "Blog Post Not Found.";
       console.log(err);

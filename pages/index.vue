@@ -8,6 +8,26 @@
         </div>
       </div>
     </section>
+    <section class="celestial-banner container pb-5">
+      <article class="message is-info">
+        <div class="message-body has-text-centered">
+          <div class="columns">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column is-one-fifth">
+              <img src="~assets/images/celestial.png" alt />
+            </div>
+            <div class="column"></div>
+            <div class="column"></div>
+          </div>
+          <h3 class="title is-3 has-text-info">Check Out The New Celestial!</h3>
+          <h4
+            class="subtitle is-4 has-text-info"
+            style="text-decoration: underline;"
+          >A New Way to Experience</h4>
+        </div>
+      </article>
+    </section>
     <section class="latest-blogpost container pb-5">
       <div class="card">
         <header class="card-header">
@@ -19,7 +39,7 @@
         </div>
         <div v-if="latest_post" class="card-content">
           <p v-if="latest_post.title" class="title">{{ latest_post.title }}</p>
-          <p v-if="latest_post.content" v-html="latest_post.content" class="subtitle"></p>
+          <div v-if="latest_post.post" v-html="latest_post_summary" class="post"></div>
         </div>
         <footer class="card-footer">
           <p class="card-footer-item">
@@ -44,6 +64,7 @@
 <script>
 import axios from "axios";
 import Card from "../components/Card";
+import Vue2Filters from "vue2-filters";
 export default {
   components: {
     Card,
@@ -56,10 +77,13 @@ export default {
   },
   async created() {
     try {
-      const res = await axios.get(
-        "https://api.aclevo.xyz/api/collections/get/Posts?token=7f5e79f057de7c4a22d07eb6d7dddb"
-      );
-      this.latest_post = res.data.entries[0];
+      const res = await axios.get("https://api.aclevo.xyz/items/blog");
+      this.latest_post = res.data.data[0];
+      this.latest_post_summary =
+        this.latest_post.post.split("</p>")[0] +
+        "</p>" +
+        this.latest_post.post.split("</p>")[1] +
+        "</p>";
     } catch (err) {
       this.error =
         "Failed to retrieve latest blog post. Please try again later.";

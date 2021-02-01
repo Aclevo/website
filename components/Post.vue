@@ -1,7 +1,11 @@
 <template>
   <div class="section">
     <div class="content">
-      <nuxt-link :to="`/blog/`+ slug">
+      <img
+        v-if="img"
+        :src="`https://api.aclevo.xyz/assets/` +  img + `?fit=cover&height=200&width=600&quality=80`"
+      />
+      <nuxt-link :to="`/blog/post/`+ slug">
         <h2>{{ title }}</h2>
       </nuxt-link>
       <div class="content-inner" v-html="content"></div>
@@ -13,7 +17,7 @@
 import axios from "axios";
 export default {
   name: "Post",
-  props: ["post", "id", "title", "content", "slug"],
+  props: ["post", "id", "title", "content", "slug", "img"],
 };
 </script>
 

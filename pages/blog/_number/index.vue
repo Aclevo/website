@@ -21,8 +21,9 @@
       />
     </div>
     <div class="container">
-      <section class="section" id="next" v-if="nextPage">
-        <nuxt-link to="/blog/2">Next page</nuxt-link>
+      <section class="section" id="prev-next">
+        <nuxt-link :to="prevLink">Prev page</nuxt-link>
+        <nuxt-link v-if="nextPage" :to="`/blog/${this.pageNo + 1}`">Next page</nuxt-link>
       </section>
     </div>
   </div>
@@ -30,27 +31,37 @@
 
 <script>
 import axios from "axios";
-import Post from "../../components/Post";
+import Post from "../../../components/Post";
 export default {
   components: {
     Post,
+  },
+  computed: {
+    prevLink() {
+      return this.pageNo === 2 ? "/" : `/blog/${this.pageNo - 1}`;
+    },
   },
   data() {
     return {
       posts: [],
       nextPage: [],
+      pageNo: [],
       error: null,
     };
   },
   async created() {
     try {
+      this.pageNo = parseInt(this.$route.params.number);
       const res = await axios.get(
-        "https://api.aclevo.xyz/items/blog?limit=11&offset=0"
+        "https://api.aclevo.xyz/items/blog?limit=11&offset=" +
+          10 * (this.pageNo - 1)
       );
       this.allposts = res.data.data;
+      if (!this.allposts.length) {
+        this.error = "There are no more blog posts.";
+      }
       const nextPage = this.allposts.length === 11;
       this.posts = nextPage ? this.allposts.slice(0, -1) : this.allposts;
-      console.log(res.data.data);
     } catch (err) {
       this.error = "Failed to retrieve blog posts. Please try again later.";
       console.log(err);
