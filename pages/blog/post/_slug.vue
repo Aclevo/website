@@ -3,7 +3,6 @@
     <section class="hero">
       <div class="hero-body">
         <div class="container">
-          <h1 v-if="this.error">Post does not exist.</h1>
           <h1 v-if="post.title" class="title">{{ post.title }}</h1>
           <h3>Published {{ post.date_created }}</h3>
           <img
@@ -25,15 +24,18 @@
 import axios from "axios";
 export default {
   components: {},
-  async asyncData($route, error) {
+  async asyncData({ params, error }) {
     const res = await axios.get(
-      `https://api.aclevo.xyz/items/blog?filter[slug][_eq]=${$route.params.slug}`
+      `https://api.aclevo.xyz/items/blog?filter[slug][_eq]=${params.slug}`
     );
     if (!res.data.data) {
-      error = "Blog post not found.";
+      return (error = {
+        message: "Blog Post does not exist.",
+        statuscode: 404,
+      });
     }
     const post = res.data.data[0];
-    return { post, error };
+    return { post };
   },
 };
 </script>
