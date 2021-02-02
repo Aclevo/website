@@ -9,7 +9,6 @@
       </div>
     </section>
     <div class="container">
-      <h1 v-if="this.error">{{ this.error }}</h1>
       <Post
         v-for="post in posts"
         :key="post._id"
@@ -23,7 +22,7 @@
     <div class="container">
       <section class="section" id="prev-next">
         <nuxt-link :to="prevLink">Prev page</nuxt-link>
-        <nuxt-link v-if="this.nextPage" :to="`/blog/${this.pageNo + 1}`">Next page</nuxt-link>
+        <nuxt-link v-if="nextPage" :to="`/blog/${pageNo + 1}`">Next page</nuxt-link>
       </section>
     </div>
   </div>
@@ -31,7 +30,7 @@
 
 <script>
 import axios from "axios";
-import Post from "../../../components/Post";
+import Post from "@/components/Post";
 export default {
   components: {
     Post,
@@ -41,34 +40,24 @@ export default {
       return this.pageNo === 2 ? "/blog" : `/blog/${this.pageNo - 1}`;
     },
   },
-  data() {
-    return {
-      posts: [],
-      nextPage: [],
-      pageNo: [],
-      error: null,
-    };
-  },
-  async created() {
-    try {
-      this.pageNo = parseInt(this.$route.params.number);
-      const res = await axios.get(
-        "https://api.aclevo.xyz/items/blog?limit=11&offset=" +
-          10 * (this.pageNo - 1)
-      );
-      this.allposts = res.data.data;
-      console.log(this.allposts.length);
-      if (!this.allposts.length) {
-        this.error = "There are no more blog posts.";
-        this.$nuxt.error({ statusCode: 404, message: "No posts found!" });
-      }
-      this.nextPage = this.allposts.length === 11;
-      console.log(this.nextPage);
-      this.posts = this.nextPage ? this.allposts.slice(0, -1) : this.allposts;
-    } catch (err) {
-      this.error = "Failed to retrieve blog posts. Please try again later.";
-      console.log(err);
+  async asyncData({ params, error }) {
+    const pageNo = parseInt(params.number);
+    const res = await axios.get(
+      "https://api.aclevo.xyz/items/blog?limit=11&offset=" + 10 * (pageNo - 1)
+    );
+    const allposts = res.data.data;
+    if (!allposts.length) {
+      return error({ statusCode: 404, message: "No posts found!" });
     }
+    const nextPage = allposts.length === 11;
+    const posts = nextPage ? allposts.slice(0, -1) : allposts;
+    if (!allposts) {
+      return (error = {
+        message: "Failed to retrieve blog posts. Please try again later.",
+        statuscode: 500,
+      });
+    }
+    return { nextPage, posts, pageNo };
   },
 };
 </script>

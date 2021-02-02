@@ -9,7 +9,6 @@
       </div>
     </section>
     <div class="container">
-      <h1 v-if="this.error">{{ this.error }}</h1>
       <Post
         v-for="post in posts"
         :key="post._id"
@@ -35,29 +34,20 @@ export default {
   components: {
     Post,
   },
-  data() {
-    return {
-      posts: [],
-      nextPage: [],
-      error: null,
-    };
-  },
-  async created() {
-    try {
-      const res = await axios.get(
-        "https://api.aclevo.xyz/items/blog?limit=11&offset=0"
-      );
-      this.allposts = res.data.data;
-      this.nextPage = this.allposts.length === 11;
-      this.posts = this.nextPage ? this.allposts.slice(0, -1) : this.allposts;
-    } catch (err) {
-      this.error = "Failed to retrieve blog posts. Please try again later.";
-      this.$nuxt.error = {
+  async asyncData($nuxt) {
+    const res = await axios.get(
+      "https://api.aclevo.xyz/items/blog?limit=11&offset=0"
+    );
+    const allposts = res.data.data;
+    const nextPage = allposts.length === 11;
+    const posts = nextPage ? allposts.slice(0, -1) : allposts;
+    if (!allposts) {
+      return error({
         error: "Failed to retrieve blog posts.",
         statuscode: 500,
-      };
-      console.log(err);
+      });
     }
+    return { posts, nextPage };
   },
 };
 </script>

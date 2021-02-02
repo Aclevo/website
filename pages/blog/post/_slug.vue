@@ -25,23 +25,15 @@
 import axios from "axios";
 export default {
   components: {},
-  data() {
-    return {
-      post: {},
-      error: null,
-    };
-  },
-  async created() {
-    try {
-      const res = await axios.get(
-        `https://api.aclevo.xyz/items/blog?filter[slug][_eq]=${this.$route.params.slug}`
-      );
-      console.log(res.data.data);
-      this.post = res.data.data[0];
-    } catch (err) {
-      this.error = "Blog Post Not Found.";
-      console.log(err);
+  async asyncData($route, error) {
+    const res = await axios.get(
+      `https://api.aclevo.xyz/items/blog?filter[slug][_eq]=${$route.params.slug}`
+    );
+    if (!res.data.data) {
+      error = "Blog post not found.";
     }
+    const post = res.data.data[0];
+    return { post, error };
   },
 };
 </script>

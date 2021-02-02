@@ -33,10 +33,6 @@
         <header class="card-header">
           <p class="card-header-title">Our Latest Blog Post</p>
         </header>
-        <div v-if="error" class="card-content">
-          <div class="title">Error:</div>
-          <div class="subtitle">{{ error }}</div>
-        </div>
         <div v-if="latest_post" class="card-content">
           <p v-if="latest_post.title" class="title">{{ latest_post.title }}</p>
           <div v-if="latest_post.post" v-html="latest_post_summary" class="post"></div>
@@ -44,7 +40,7 @@
         <footer class="card-footer">
           <p class="card-footer-item">
             <span v-if="latest_post">
-              <a :href="`/blog/` + latest_post.slug">Read More</a>
+              <a :href="`/blog/post/` + latest_post.slug">Read More</a>
             </span>
           </p>
         </footer>
@@ -69,26 +65,15 @@ export default {
   components: {
     Card,
   },
-  data() {
-    return {
-      latest_post: [],
-      error: null,
-    };
-  },
-  async created() {
-    try {
-      const res = await axios.get("https://api.aclevo.xyz/items/blog");
-      this.latest_post = res.data.data[0];
-      this.latest_post_summary =
-        this.latest_post.post.split("</p>")[0] +
-        "</p>" +
-        this.latest_post.post.split("</p>")[1] +
-        "</p>";
-    } catch (err) {
-      this.error =
-        "Failed to retrieve latest blog post. Please try again later.";
-      console.log(err);
-    }
+  async asyncData() {
+    const res = await axios.get("https://api.aclevo.xyz/items/blog");
+    const latest_post = res.data.data[0];
+    const latest_post_summary =
+      latest_post.post.split("</p>")[0] +
+      "</p>" +
+      latest_post.post.split("</p>")[1] +
+      "</p>";
+    return { latest_post, latest_post_summary };
   },
 };
 </script>
