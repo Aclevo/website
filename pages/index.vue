@@ -40,7 +40,7 @@
         <footer class="card-footer">
           <p class="card-footer-item">
             <span v-if="latest_post">
-              <a :href="`/blog/post/` + latest_post.slug">Read More</a>
+              <a :href="`/blog/post/` + latest_post.slug">Read the Latest Blog Post</a>
             </span>
           </p>
         </footer>

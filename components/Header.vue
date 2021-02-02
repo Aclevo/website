@@ -23,7 +23,7 @@
         <nuxt-link to="/downloads" class="navbar-item">Downloads</nuxt-link>
         <nuxt-link to="/about" class="navbar-item">About</nuxt-link>
         <nuxt-link to="/contact" class="navbar-item">Contact</nuxt-link>
-        <nuxt-link to="/more" class="navbar-item">More</nuxt-link>
+        <nuxt-link to="/more" class="navbar-item">More Content</nuxt-link>
       </div>
       <!-- hidden on mobile -->
     </div>
