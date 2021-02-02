@@ -19,12 +19,15 @@
 import axios from "axios";
 export default {
   components: {},
-  async asyncData(params, error) {
-    const res = await axios.get(`https://api.aclevo.xyz/items/page`);
+  async asyncData({ params, error }) {
+    const res = await axios.get(
+      `https://api.aclevo.xyz/items/page?filter[slug][_eq]=${params.page}`
+    );
     const page = res.data.data[0];
     if (!page) {
-      return error({ errorcode: 404, error: "Page Not Found" });
+      return error({ statuscode: 404, message: "Page Not Found" });
     }
+    return { page };
   },
 };
 </script>
