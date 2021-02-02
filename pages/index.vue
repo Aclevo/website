@@ -15,7 +15,7 @@
             <div class="column"></div>
             <div class="column"></div>
             <div class="column is-one-fifth">
-              <img src="~assets/images/celestial.png" alt />
+              <img src="~assets/images/celestial.png" width="700" height="150" alt />
             </div>
             <div class="column"></div>
             <div class="column"></div>

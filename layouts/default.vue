@@ -13,9 +13,7 @@ import Header from "~/components/Header.vue";
 import Footer from "~/components/Footer.vue";
 export default {
   head: {
-    bodyAttrs: {
-      class: "has-navbar-fixed-bottom",
-    },
+    bodyAttrs: {},
   },
   components: {
     Header,
