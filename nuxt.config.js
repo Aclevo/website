@@ -15,11 +15,23 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    title: process.env.npm_package_name || '',
+    title: "Aclevo",
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
+      { hid: 'description', name: 'description', content: "Aclevo is a community-orientated content-creation group created by Reasonably Selenium on November 2nd, 2015." },
+      // Twitter SEO
+      { hid: 'twitter:card', name: 'twitter:card', content: "Aclevo Website" },
+      { hid: 'twitter:site', name: 'twitter:site', content: "@AclevoReal" },
+      { hid: 'twitter:creator', name: 'twitter:creator', content: "@AclevoReal" },
+      { hid: 'twitter:title', name: 'twitter:title', content: "Aclevo Website" },
+      { hid: 'twitter:description', name: 'twitter:description', content: "Aclevo is a community-orientated content-creation group created by Reasonably Selenium on November 2nd, 2015." },
+      // OG SEO
+      { hid: 'og:site_name', name: 'og:site_name', content: "Aclevo Website" },
+      { hid: 'og:title', name: 'og:title', content: "Aclevo" },
+      { hid: 'og:description', name: 'og:description', content: "Aclevo is a community-orientated content-creation group created by Reasonably Selenium on November 2nd, 2015." },
+
+
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }

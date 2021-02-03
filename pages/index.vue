@@ -65,6 +65,18 @@ export default {
   components: {
     Card,
   },
+  head() {
+    return {
+      title: "Home - Aclevo",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Aclevo's Home Page",
+        },
+      ],
+    };
+  },
   async asyncData() {
     const res = await axios.get("https://api.aclevo.xyz/items/blog");
     const latest_post = res.data.data[0];

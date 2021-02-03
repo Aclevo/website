@@ -40,6 +40,18 @@ export default {
       return this.pageNo === 2 ? "/blog" : `/blog/${this.pageNo - 1}`;
     },
   },
+  head() {
+    return {
+      title: "Blog Page " + this.pageNo + " - Aclevo",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Aclevo's Blog Page " + this.pageNo,
+        },
+      ],
+    };
+  },
   async asyncData({ params, error }) {
     const pageNo = parseInt(params.number);
     const res = await axios.get(

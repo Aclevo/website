@@ -19,6 +19,43 @@
 import axios from "axios";
 export default {
   components: {},
+  head() {
+    return {
+      title: this.page.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.page.content,
+        },
+        {
+          hid: "twitter:card",
+          name: "twitter:card",
+          content: `Aclevo - ${this.page.content}`,
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: `Aclevo - ${this.page.title}`,
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: this.page.content,
+        },
+        {
+          hid: "og:title",
+          name: "og:title",
+          content: `Aclevo - ${this.page.title}`,
+        },
+        {
+          hid: "og:description",
+          name: "og:description",
+          content: this.page.content,
+        },
+      ],
+    };
+  },
   async asyncData({ params, error }) {
     const res = await axios.get(
       `https://api.aclevo.xyz/items/page?filter[slug][_eq]=${params.page}`

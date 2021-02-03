@@ -24,6 +24,43 @@
 import axios from "axios";
 export default {
   components: {},
+  head() {
+    return {
+      title: this.post.title,
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: this.post.post,
+        },
+        {
+          hid: "twitter:card",
+          name: "twitter:card",
+          content: `Aclevo - ${this.post.post}`,
+        },
+        {
+          hid: "twitter:title",
+          name: "twitter:title",
+          content: `Aclevo - ${this.post.title}`,
+        },
+        {
+          hid: "twitter:description",
+          name: "twitter:description",
+          content: this.post.post,
+        },
+        {
+          hid: "og:title",
+          name: "og:title",
+          content: `Aclevo - ${this.post.title}`,
+        },
+        {
+          hid: "og:description",
+          name: "og:description",
+          content: this.post.post,
+        },
+      ],
+    };
+  },
   async asyncData({ params, error }) {
     const res = await axios.get(
       `https://api.aclevo.xyz/items/blog?filter[slug][_eq]=${params.slug}`

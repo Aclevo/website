@@ -34,6 +34,18 @@ export default {
   components: {
     Post,
   },
+  head() {
+    return {
+      title: "Blog - Aclevo",
+      meta: [
+        {
+          hid: "description",
+          name: "description",
+          content: "Aclevo's Blog Home",
+        },
+      ],
+    };
+  },
   async asyncData($nuxt) {
     const res = await axios.get(
       "https://api.aclevo.xyz/items/blog?limit=11&offset=0"
