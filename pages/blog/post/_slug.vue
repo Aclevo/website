@@ -22,6 +22,7 @@
 
 <script>
 import axios from "axios";
+import Vue2Filters from "vue2-filters";
 export default {
   components: {},
   head() {
@@ -49,14 +50,45 @@ export default {
           content: this.post.post,
         },
         {
+          hid: "twitter:image",
+          name: "twitter: image",
+          content:
+            "https://api.aclevo.xyz/assets/" +
+            this.post.image +
+            "?fit=cover&height=400&width=1200&quality=80`",
+        },
+        {
+          hid: "twitter:image:alt",
+          name: "twitter:image:alt",
+          content: this.post.title,
+        },
+        {
           hid: "og:title",
-          name: "og:title",
+          property: "og:title",
           content: `Aclevo - ${this.post.title}`,
         },
         {
           hid: "og:description",
-          name: "og:description",
+          property: "og:description",
           content: this.post.post,
+        },
+        {
+          hid: "og:type",
+          property: "og:type",
+          content: "article",
+        },
+        {
+          hid: "og:image",
+          property: "og:image",
+          content:
+            "https://api.aclevo.xyz/assets/" +
+            this.post.image +
+            "?fit=cover&height=400&width=1200&quality=80`",
+        },
+        {
+          hid: "og:image:alt",
+          property: "og:image:alt",
+          content: this.post.title,
         },
       ],
     };
