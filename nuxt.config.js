@@ -75,6 +75,18 @@ export default {
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
   ],
+
+  pwa: {
+    manifest: {
+      name: "The Aclevo Website",
+      short_name: "Aclevo",
+      description: "Aclevo is a content-creation group made by Reasonably Selenium in 2015.",
+      background_color: "#2196F3",
+      theme_color: "#2196F3",
+
+    }
+  },
+
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
