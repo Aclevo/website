@@ -20,6 +20,7 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: "Aclevo is a community-orientated content-creation group created by Reasonably Selenium on November 2nd, 2015." },
+      { name: "theme-color", content: "#2196F3" },
       // Twitter SEO
       { hid: 'twitter:card', name: 'twitter:card', content: "Aclevo Website" },
       { hid: 'twitter:site', name: 'twitter:site', content: "@AclevoReal" },
