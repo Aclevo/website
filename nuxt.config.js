@@ -28,6 +28,7 @@ export default {
       { hid: 'twitter:title', name: 'twitter:title', content: "Aclevo Website" },
       { hid: 'twitter:description', name: 'twitter:description', content: "Aclevo is a community-orientated content-creation group created by Reasonably Selenium on November 2nd, 2015." },
       // OG SEO
+      { hid: 'og:url', property: 'og:url', content: "https://aclevo.xyz/" },
       { hid: 'og:site_name', property: 'og:site_name', content: "Aclevo Website" },
       { hid: 'og:title', property: 'og:title', content: "Aclevo" },
       { hid: 'og:description', property: 'og:description', content: "Aclevo is a community-orientated content-creation group created by Reasonably Selenium on November 2nd, 2015." },
