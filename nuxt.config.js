@@ -63,6 +63,7 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
+    '@/modules/sitemapRouteGenerator'
   ],
   /*
   ** Nuxt.js modules
@@ -75,7 +76,12 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+    '@nuxtjs/sitemap'
   ],
+
+  sitemap: {
+    hostname: 'https://aclevo.xyz/'
+  },
 
   pwa: {
     manifest: {

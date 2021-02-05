@@ -51,7 +51,7 @@ export default {
         },
         {
           hid: "twitter:image",
-          name: "twitter: image",
+          name: "twitter:image",
           content:
             "https://api.aclevo.xyz/assets/" +
             this.post.image +
