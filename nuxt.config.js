@@ -64,8 +64,13 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@/modules/sitemapRouteGenerator'
+    '@/modules/sitemapRouteGenerator',
+    '@nuxtjs/google-analytics'
   ],
+
+  googleAnalytics: {
+    id: 'UA-63265906-2'
+  },
   /*
   ** Nuxt.js modules
   */
