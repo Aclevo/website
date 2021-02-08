@@ -68,6 +68,11 @@ export default {
           content: `Aclevo - ${this.post.title}`,
         },
         {
+          hid: "og:url",
+          property: "og:url",
+          content: "https://aclevo.xyz/blog/post/" + this.params.slug,
+        },
+        {
           hid: "og:description",
           property: "og:description",
           content: this.post.post,
@@ -104,7 +109,7 @@ export default {
       });
     }
     const post = res.data.data[0];
-    return { post };
+    return { params, post };
   },
 };
 </script>
