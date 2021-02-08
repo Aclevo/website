@@ -22,7 +22,7 @@ export default {
       { hid: 'description', name: 'description', content: "Aclevo is a community-orientated content-creation group created by Reasonably Selenium on November 2nd, 2015." },
       { name: "theme-color", content: "#2196F3" },
       // Twitter SEO
-      { hid: 'twitter:card', name: 'twitter:card', content: "Aclevo Website" },
+      { hid: 'twitter:card', name: 'twitter:card', content: "summary_large_image" },
       { hid: 'twitter:site', name: 'twitter:site', content: "@AclevoReal" },
       { hid: 'twitter:creator', name: 'twitter:creator', content: "@AclevoReal" },
       { hid: 'twitter:title', name: 'twitter:title', content: "Aclevo Website" },
