@@ -16,7 +16,8 @@
         <div class="content-inner" v-html="content"></div>
         <div class="read_more has-text-centered">
           <nuxt-link :to="`/blog/post/` + slug" class="button">
-            <font-awesome-icon :icon="['fas', 'book-open']" />&nbsp;Read More
+            <font-awesome-icon :icon="['fas', 'book-open']" />
+            &nbsp;Read "{{ title }}"
           </nuxt-link>
         </div>
       </div>
