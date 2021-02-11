@@ -1,29 +1,7 @@
 @import '~bulma/sass/utilities/initial-variables';
 @import '~bulma/sass/utilities/functions';
 
-@font-face {
-  font-family: "Aclevo Sans";
-  src: url(../fonts/AclevoSans-Regular.ttf) format('truetype');
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Aclevo Sans";
-  src: url(../fonts/AclevoSans-Thin.ttf) format('truetype');
-  font-weight: 200;
-}
-
-@font-face {
-  font-family: "Aclevo Sans";
-  src: url(../fonts/AclevoSans-Bold.ttf) format('truetype');
-  font-weight: 600;
-}
-
-@font-face {
-  font-family: "Aclevo Sans";
-  src: url(../fonts/AclevoSans-UltraBold.ttf) format('truetype');
-  font-weight: 800;
-}
+@import './fonts.scss';
 
 .main {
   display: flex;
@@ -31,34 +9,12 @@
   flex-direction: column;
 }
 
-.post p {
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
+@import './post.scss';
 
-// Our Theme Colors
-$primary-blue: #2196F3;
-$p-dark-blue: #1976D2;
-$p-dark-alt: #0069c0;
-$p-light-blue: #BBDEFB;
-$p-light-alt: #6ec6ff;
-$accent-blue: #03A9F4;
-$text-icons: #FFFFFF;
-$primary-text: #212121;
-$secondary-text: #757575;
-$divider-color: #BDBDBD;
+@import './colors.scss';
 
+@import './overrides.scss';
 
-
-// Bulma Overrides
-$family-sans-serif: "Aclevo Sans", sans-serif;
-$primary: $primary-blue;
-$link: $p-dark-blue;
-$info: $p-dark-alt;
-$text:  $primary-text;
-
-$navbar-background-color: $p-dark-alt !important;
-$footer-background-color: $p-light-alt;
-
+@import './nav.scss';
 
 @import '~bulma'
