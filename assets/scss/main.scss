@@ -13,6 +13,11 @@
 
 @import './colors.scss';
 
+.hero {
+  background-color: $p-light-alt;
+  margin-bottom: 2rem;
+}
+
 @import './overrides.scss';
 
 @import './nav.scss';

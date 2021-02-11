@@ -1,2 +1,6 @@
 $navbar-background-color: $p-dark-alt !important;
 $footer-background-color: $p-light-alt;
+
+a.navbar-item {
+  color: $text-icons;
+}

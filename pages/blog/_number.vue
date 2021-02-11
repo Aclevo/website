@@ -14,15 +14,19 @@
         :key="post._id"
         :id="post._id"
         :title="post.title"
-        :content="post.post | truncate(1000)"
+        :content="post.post | truncate(1200)"
         :img="post.image"
         :slug="post.slug"
       />
     </div>
     <div class="container">
-      <section class="section" id="prev-next">
-        <nuxt-link :to="prevLink">Prev page</nuxt-link>
-        <nuxt-link v-if="nextPage" :to="`/blog/${pageNo + 1}`">Next page</nuxt-link>
+      <section class="section has-text-centered" id="prev-next">
+        <nuxt-link class="button" :to="prevLink">
+          <font-awesome-icon :icon="['fas', 'arrow-left']" />&nbsp;Previous Page
+        </nuxt-link>
+        <nuxt-link v-if="nextPage" class="button" :to="`/blog/${pageNo + 1}`">
+          <font-awesome-icon :icon="['fas', 'arrow-right']" />&nbsp;Next Page
+        </nuxt-link>
       </section>
     </div>
   </div>

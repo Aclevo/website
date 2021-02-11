@@ -4,13 +4,20 @@
       <nuxt-link class="navbar-item" to="/">
         <h1 class="has-text-weight-bold">Aclevo</h1>
       </nuxt-link>
-      <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <a
+        role="button"
+        class="navbar-burger"
+        aria-label="menu"
+        aria-expanded="false"
+        @click="isOpen = !isOpen"
+        v-bind:class="{'is-active': isOpen}"
+      >
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
     </div>
-    <div class="navbar-menu">
+    <div class="navbar-menu" :class="{'is-active': isOpen}">
       <div class="navbar-start">
         <nuxt-link to="/" class="navbar-item">Projects</nuxt-link>
         <nuxt-link to="/" class="navbar-item">Series</nuxt-link>
@@ -29,3 +36,12 @@
     </div>
   </nav>
 </template>
+<script>
+export default {
+  data: function () {
+    return {
+      isOpen: false,
+    };
+  },
+};
+</script>

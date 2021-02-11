@@ -64,9 +64,17 @@ export default {
   ** Nuxt.js dev-modules
   */
   buildModules: [
-    '@/modules/sitemapRouteGenerator',
-    '@nuxtjs/google-analytics'
+    '@/utils/sitemapRouteGenerator',
+    '@nuxtjs/google-analytics',
+    '@nuxtjs/fontawesome',
   ],
+
+  fontawesome: {
+    icons: {
+      solid: true,
+      brands: true,
+    }
+  },
 
   googleAnalytics: {
     id: 'UA-63265906-2'

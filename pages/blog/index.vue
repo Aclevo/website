@@ -14,14 +14,16 @@
         :key="post._id"
         :id="post._id"
         :title="post.title"
-        :content="post.post | truncate(1000)"
+        :content="post.post  | truncate(1200)"
         :img="post.image"
         :slug="post.slug"
       />
     </div>
     <div class="container">
-      <section class="section" id="next" v-if="nextPage">
-        <nuxt-link to="/blog/2">Next page</nuxt-link>
+      <section class="section has-text-centered" id="next" v-if="nextPage">
+        <nuxt-link class="button" to="/blog/2">
+          <font-awesome-icon :icon="['fas', 'arrow-right']" />&nbsp;Next Page
+        </nuxt-link>
       </section>
     </div>
   </div>
