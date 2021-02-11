@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import Header from "~/components/Header.vue";
-import Footer from "~/components/Footer.vue";
+import Header from "~/components/nav/Header";
+import Footer from "~/components/nav/Footer";
 export default {
   head: {
     bodyAttrs: {},
@@ -21,6 +21,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-</style>
