@@ -50,7 +50,7 @@ export default {
   },
   async asyncData($nuxt) {
     const res = await axios.get(
-      "https://api.aclevo.xyz/items/blog?limit=11&offset=0"
+      "https://api.aclevo.xyz/items/blog?filter[status][_in]=published&limit=11&offset=0"
     );
     const allposts = res.data.data;
     const nextPage = allposts.length === 11;
