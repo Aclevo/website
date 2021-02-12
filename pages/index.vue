@@ -35,7 +35,7 @@
             <h1>Content Creation</h1>
             <p>
               Aclevo is a community-orientated content-creation group founded in 2015 by Reasonably Selenium. As a group of contributors working to fulfill goals by learning strategies that will be useful later in our lives, we make a variety of content such as videos, music, stories, articles, programs, and other types of content.
-              Published on many platforms such as YouTube, Twitter, SoundCloud, Twitch, and many other platforms, we work togethert as a team to bring you funny, engaging, and innovative content that is enjoyable. We've played many games together, such as Keep Talking and Nobody Explodes, Minecraft, SimCity 2000, Bejeweled 2, Terraria, Portal, and other fun games are coming as we plan to expand our collection. We've also reviewed an alternative to Microsoft Office, shown off our Linux skills, and just recently shown off how data is represented as audio, which isn't the end for our techies out there. More content awaits for you to explore and enjoy!
+              Published on many platforms such as YouTube, Twitter, SoundCloud, Twitch, and many other platforms, we work together as a team to bring you funny, engaging, and innovative content that is enjoyable. We've played many games together, such as Keep Talking and Nobody Explodes, Minecraft, SimCity 2000, Bejeweled 2, Terraria, Portal, and other fun games are coming as we plan to expand our collection. We've also reviewed an alternative to Microsoft Office, shown off our Linux skills, and just recently shown off how data is represented as audio, which isn't the end for our techies out there. More content awaits for you to explore and enjoy!
             </p>
           </div>
           <div class="column is-4">
