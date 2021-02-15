@@ -31,10 +31,9 @@
 
 <script>
 import axios from "axios";
-import Post from "../../components/Post";
 export default {
   components: {
-    Post,
+    Post: () => import("@/components/Post.vue"),
   },
   head() {
     return {

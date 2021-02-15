@@ -87,11 +87,10 @@
 
 <script>
 import axios from "axios";
-import Card from "../components/Card";
 import Vue2Filters from "vue2-filters";
 export default {
   components: {
-    Card,
+    Card: () => import("@/components/Card.vue"),
   },
   head() {
     return {
