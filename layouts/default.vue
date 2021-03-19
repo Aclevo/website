@@ -9,15 +9,13 @@
 </template>
 
 <script>
-import Header from "~/components/nav/Header";
-import Footer from "~/components/nav/Footer";
 export default {
   head: {
     bodyAttrs: {},
   },
   components: {
-    Header,
-    Footer,
+    Header: () => import("@/components/nav/Header.vue"),
+    Footer: () => import("@/components/nav/Footer.vue"),
   },
 };
 </script>
