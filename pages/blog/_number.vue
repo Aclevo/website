@@ -58,7 +58,7 @@ export default {
   async asyncData({ params, error }) {
     const pageNo = parseInt(params.number);
     const res = await axios.get(
-      "https://api.aclevo.xyz/items/blog?filter[status][_in]=published&limit=11&offset=" +
+      "https://api.aclevo.xyz/items/blog?filter[status][_eq]=published&sort=-date_created&limit=11&offset=" +
         10 * (pageNo - 1)
     );
     const allposts = res.data.data;
