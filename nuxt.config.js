@@ -25,6 +25,7 @@ export default {
     ],
     meta: [
       { charset: 'utf-8' },
+      { name: 'norton-safeweb-site-verification', content: '4do8zxxpkzxizmjswja194272-g4rfij0q2c0f6fxdr0xjgmfnzldkdjho4vvf961vok0qwm4flyfrwqrmyjkbmntsr12jyr4xj7s3fgo27erw4g1vcmial41b-f-j9d' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: "Aclevo is a community-orientated content-creation group created by Reasonably Selenium on November 2nd, 2015." },
       { name: "theme-color", content: "#2196F3" },
