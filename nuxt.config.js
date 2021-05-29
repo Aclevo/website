@@ -98,12 +98,21 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+    '@nuxtjs/robots',
     '@nuxtjs/sitemap'
   ],
 
   sitemap: {
     hostname: 'https://aclevo.xyz/'
   },
+
+  robots: {
+    UserAgent: '*',
+    Allow: "/",
+    Sitemap: "/sitemap.xml"
+  },
+
+
 
   pwa: {
     manifest: {
