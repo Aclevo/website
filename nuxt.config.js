@@ -109,7 +109,7 @@ export default {
   robots: {
     UserAgent: '*',
     Allow: "/",
-    Sitemap: "/sitemap.xml"
+    Sitemap: "https://aclevo.xyz/sitemap.xml"
   },
 
 
