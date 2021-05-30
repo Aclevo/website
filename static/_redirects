@@ -1,0 +1,4 @@
+http://aclevo-website.netlify.app/* https://aclevo.xyz/:splat 301!
+https://aclevo-website.netlify.app/* https://aclevo.xyz/:splat 301!
+http://aclevo.xyz/* https://aclevo.xyz/:splat 301!
+https://www.aclevo.xyz/* https://aclevo.xyz/:splat 301!
