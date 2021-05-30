@@ -38,6 +38,13 @@ export default {
   head() {
     return {
       title: "Blog - Aclevo",
+      link: [
+        {
+          hid: "canonical",
+          rel: "canonical",
+          href: `https://aclevo.xyz/${this.$route.params.slug}`,
+        },
+      ],
       meta: [
         {
           hid: "description",

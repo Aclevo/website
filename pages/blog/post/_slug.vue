@@ -28,6 +28,13 @@ export default {
   head() {
     return {
       title: this.post.title,
+      link: [
+        {
+          hid: "canonical",
+          rel: "canonical",
+          href: `https://aclevo.xyz/${this.$route.params.slug}`,
+        },
+      ],
       meta: [
         {
           hid: "description",

@@ -95,6 +95,13 @@ export default {
   head() {
     return {
       title: "Home - Aclevo",
+      link: [
+        {
+          hid: "canonical",
+          rel: "canonical",
+          href: `https://aclevo.xyz/${this.$route.params.slug}`,
+        },
+      ],
       meta: [
         {
           hid: "description",
@@ -105,7 +112,9 @@ export default {
     };
   },
   async asyncData() {
-    const res = await axios.get("https://api.aclevo.xyz/items/blog?filter[status][_eq]=published&sort=-date_created");
+    const res = await axios.get(
+      "https://api.aclevo.xyz/items/blog?filter[status][_eq]=published&sort=-date_created"
+    );
     const latest_post = res.data.data[0];
     const latest_post_summary =
       latest_post.post.split("</p>")[0] +
