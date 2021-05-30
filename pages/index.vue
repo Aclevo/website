@@ -99,7 +99,7 @@ export default {
         {
           hid: "canonical",
           rel: "canonical",
-          href: `https://aclevo.xyz/${this.$route.params.slug}`,
+          href: `https://aclevo.xyz/`,
         },
       ],
       meta: [
