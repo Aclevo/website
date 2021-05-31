@@ -104,7 +104,7 @@ export default {
 
   sitemap: {
     hostname: 'https://aclevo.xyz/',
-    lastmod: "2021-05-29"
+    lastmod: "2021-05-30"
   },
 
   robots: {
