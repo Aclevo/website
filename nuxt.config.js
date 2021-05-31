@@ -16,13 +16,6 @@ export default {
   */
   head: {
     title: "Aclevo",
-    script: [
-      {
-        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js',
-        'data-ad-client': 'ca-pub-3294253820838789',
-        async: true
-      }
-    ],
     meta: [
       { charset: 'utf-8' },
       { name: 'norton-safeweb-site-verification', content: '4do8zxxpkzxizmjswja194272-g4rfij0q2c0f6fxdr0xjgmfnzldkdjho4vvf961vok0qwm4flyfrwqrmyjkbmntsr12jyr4xj7s3fgo27erw4g1vcmial41b-f-j9d' },
