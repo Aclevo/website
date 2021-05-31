@@ -103,7 +103,8 @@ export default {
   ],
 
   sitemap: {
-    hostname: 'https://aclevo.xyz/'
+    hostname: 'https://aclevo.xyz/',
+    lastmod: "2021-05-29"
   },
 
   robots: {
